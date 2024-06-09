@@ -14,12 +14,10 @@ def load_knowledge_base(file_path):
     else:
         return {"questions": []}
 
-# Save the knowledge base to the JSON file
 def save_knowledge_base(file_path, knowledge_base):
     with open(file_path, 'w') as file:
         json.dump(knowledge_base, file, indent=4)
 
-# Find the answer to a question
 def find_answer(knowledge_base, question, threshold=0.6):
     questions = [entry["question"] for entry in knowledge_base["questions"]]
     closest_matches = difflib.get_close_matches(question, questions, n= 1, cutoff=threshold)
@@ -31,15 +29,13 @@ def find_answer(knowledge_base, question, threshold=0.6):
                 return entry["answer"]
     return None
 
-# Add a new question and answer to the knowledge base
 def add_question(knowledge_base, question, answer):
     knowledge_base["questions"].append({
         "question": question,
         "answer": answer
     })
 
-# Main function to run the bot
-def run_bot():
+def run_bot(): #/////Main function to run the bot/////
     engine = pyttsx3.init()
     rate = engine.getProperty('rate')
     engine.setProperty('rate', rate-50)
