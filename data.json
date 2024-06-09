@@ -1,1 +1,16 @@
-
+{
+    "questions": [
+        {
+            "question": "Hello",
+            "answer": "Hello, How are You?"
+        },
+        {
+            "question": "How old are you?",
+            "answer": "I am a bot, so i do not have the capacity to posess feelings, but thank you for your concern :)"
+        },
+        {
+            "question": "I am good, How are you?",
+            "answer": "I am good :)"
+        }
+    ]
+}

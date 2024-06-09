@@ -5,7 +5,10 @@ import os
 def load_knowledge_base(file_path):
     if os.path.exists(file_path):
         with open(file_path, 'r') as file:
-            return json.load(file)
+            try:
+                return json.load(file)
+            except json.JSONDecodeError:
+                return {"questions": []}
     else:
         return {"questions": []}
 
@@ -34,7 +37,7 @@ def run_bot():
     knowledge_base = load_knowledge_base(file_path)
 
     while True:
-        question = input("Ask a question (or type 'exit' to quit): ")
+        question = input("You: ")
         if question.lower() == 'exit':
             break
         
@@ -42,10 +45,13 @@ def run_bot():
         if answer:
             print(f"Answer: {answer}")
         else:
-            answer = input("I don't know the answer. Please teach me: ")
-            add_question(knowledge_base, question, answer)
-            save_knowledge_base(file_path, knowledge_base)
-            print("Thank you! I've learned something new.")
+            answer = input("I don't know the answer. Please teach me or skip this by typing skip :) : ")
+            if answer.lower() == 'skip':
+                continue
+            else:
+                add_question(knowledge_base, question, answer)
+                save_knowledge_base(file_path, knowledge_base)
+                print("Thank you! I've learned something new.")
 
 if __name__ == "__main__":
     run_bot()
