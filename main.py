@@ -49,7 +49,7 @@ def run_bot():
         
         answer = find_answer(knowledge_base, question)
         if answer:
-            print(f"Answer: {answer}")
+            print(f"Sam: {answer}")
         else:
             answer = input("I don't know the answer. Please teach me or skip this by typing skip :) : ")
             if answer.lower() == 'skip':

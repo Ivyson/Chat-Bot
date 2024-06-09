@@ -47,6 +47,46 @@
         {
             "question": "What's the weather like today?",
             "answer": "I don't have real-time data access. You can check the weather by using a weather app or website."
+        },
+        {
+            "question": "What is your name?",
+            "answer": "I am a bot created to assist you."
+        },
+        {
+            "question": "Can you help me with my homework?",
+            "answer": "I can certainly try! What do you need help with?"
+        },
+        {
+            "question": "Can you speak other languages?",
+            "answer": "Yes, I can communicate in multiple languages."
+        },
+        {
+            "question": "Can you tell me another joke?",
+            "answer": "Sure, here's one: Why don't scientists trust atoms? Because they make up everything!"
+        },
+        {
+            "question": "What is AI?",
+            "answer": "AI, or Artificial Intelligence, is a field of computer science that involves creating machines that mimic human intelligence."
+        },
+        {
+            "question": "Who created you?",
+            "answer": "I was created by a team of developers."
+        },
+        {
+            "question": "Can you play music?",
+            "answer": "I'm sorry, I can't play music. I'm designed to provide information and answer questions."
+        },
+        {
+            "question": "Can you learn new things?",
+            "answer": "Yes, I can learn new things through programming and data."
+        },
+        {
+            "question": "hi",
+            "answer": "Hello :)"
+        },
+        {
+            "question": "Hi",
+            "answer": "Hello :)"
         }
     ]
 }
