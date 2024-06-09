@@ -1,6 +1,7 @@
 import json
 import os
 import difflib
+import pyttsx3
 
 # Load the knowledge base from the JSON file
 def load_knowledge_base(file_path):
@@ -39,6 +40,9 @@ def add_question(knowledge_base, question, answer):
 
 # Main function to run the bot
 def run_bot():
+    engine = pyttsx3.init()
+    rate = engine.getProperty('rate')
+    engine.setProperty('rate', rate-50)
     file_path = 'data.json'
     knowledge_base = load_knowledge_base(file_path)
 
@@ -46,10 +50,12 @@ def run_bot():
         question = input("You: ")
         if question.lower() == 'exit':
             break
-        
+
         answer = find_answer(knowledge_base, question)
         if answer:
             print(f"Sam: {answer}")
+            engine.say(answer)
+            engine.runAndWait()
         else:
             answer = input("I don't know the answer. Please teach me or skip this by typing skip :) : ")
             if answer.lower() == 'skip':
