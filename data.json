@@ -11,6 +11,10 @@
         {
             "question": "I am good, How are you?",
             "answer": "I am good :)"
+        },
+        {
+            "question": "I am good",
+            "answer": "How can I help you today?"
         }
     ]
 }

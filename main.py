@@ -1,5 +1,6 @@
 import json
 import os
+import difflib
 
 # Load the knowledge base from the JSON file
 def load_knowledge_base(file_path):
@@ -18,10 +19,15 @@ def save_knowledge_base(file_path, knowledge_base):
         json.dump(knowledge_base, file, indent=4)
 
 # Find the answer to a question
-def find_answer(knowledge_base, question):
-    for entry in knowledge_base["questions"]:
-        if entry["question"].lower() == question.lower():
-            return entry["answer"]
+def find_answer(knowledge_base, question, threshold=0.6):
+    questions = [entry["question"] for entry in knowledge_base["questions"]]
+    closest_matches = difflib.get_close_matches(question, questions, n= 1, cutoff=threshold)
+    
+    if closest_matches:
+        best_match = closest_matches[0]
+        for entry in knowledge_base["questions"]:
+            if entry["question"].lower() == best_match.lower():
+                return entry["answer"]
     return None
 
 # Add a new question and answer to the knowledge base
