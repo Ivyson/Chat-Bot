@@ -5,12 +5,8 @@
             "answer": "Hello, How are You?"
         },
         {
-            "question": "How old are you?",
+            "question": "How are you?",
             "answer": "I am a bot, so I do not have the capacity to possess feelings, but thank you for your concern :)"
-        },
-        {
-            "question": "I am good, How are you?",
-            "answer": "I am good :)"
         },
         {
             "question": "I am good",
