@@ -30,7 +30,7 @@ def add_question(knowledge_base, question, answer):
 
 # Main function to run the bot
 def run_bot():
-    file_path = 'knowledge_base.json'
+    file_path = 'data.json'
     knowledge_base = load_knowledge_base(file_path)
 
     while True:
