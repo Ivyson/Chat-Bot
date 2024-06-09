@@ -1,88 +1,80 @@
 {
     "questions": [
         {
-            "question": "Hello",
+            "question": "hello",
             "answer": "Hello, How are You?"
         },
         {
-            "question": "How are you?",
+            "question": "how are you?",
             "answer": "I am a bot, so I do not have the capacity to possess feelings, but thank you for your concern :)"
         },
         {
-            "question": "I am good",
+            "question": "i am good",
             "answer": "How can I help you today?"
         },
         {
-            "question": "What can you do?",
+            "question": "what can you do?",
             "answer": "I can help answer questions, provide information, assist with tasks, and more. Feel free to ask me anything!"
         },
         {
-            "question": "Can you tell me a joke?",
+            "question": "can you tell me a joke?",
             "answer": "Sure, here's one: Why did the scarecrow win an award? Because he was outstanding in his field!"
         },
         {
-            "question": "What is your favorite color?",
+            "question": "what is your favorite color?",
             "answer": "As a bot, I don't have preferences like humans do, but I think all colors are beautiful!"
         },
         {
-            "question": "Do you dream?",
+            "question": "do you dream?",
             "answer": "No, I don't dream like humans do. I process information and respond based on programmed instructions."
         },
         {
-            "question": "How do you learn?",
+            "question": "how do you learn?",
             "answer": "I learn through data and programming. Developers continuously update and train me to improve my capabilities."
         },
         {
-            "question": "Are you always right?",
+            "question": "are you always right?",
             "answer": "I strive to provide accurate information, but I'm not infallible. Always double-check critical information for confirmation."
         },
         {
-            "question": "Can you code?",
+            "question": "can you code?",
             "answer": "I don't write code like a human programmer, but I can help with coding-related questions and provide examples."
         },
         {
-            "question": "What's the weather like today?",
+            "question": "what's the weather like today?",
             "answer": "I don't have real-time data access. You can check the weather by using a weather app or website."
         },
         {
-            "question": "What is your name?",
+            "question": "what is your name?",
             "answer": "I am a bot created to assist you."
         },
         {
-            "question": "Can you help me with my homework?",
+            "question": "can you help me with my homework?",
             "answer": "I can certainly try! What do you need help with?"
         },
         {
-            "question": "Can you speak other languages?",
+            "question": "can you speak other languages?",
             "answer": "Yes, I can communicate in multiple languages."
         },
         {
-            "question": "Can you tell me another joke?",
+            "question": "can you tell me another joke?",
             "answer": "Sure, here's one: Why don't scientists trust atoms? Because they make up everything!"
         },
         {
-            "question": "What is AI?",
+            "question": "what is AI?",
             "answer": "AI, or Artificial Intelligence, is a field of computer science that involves creating machines that mimic human intelligence."
         },
         {
-            "question": "Who created you?",
+            "question": "who created you?",
             "answer": "I was created by a team of developers."
         },
         {
-            "question": "Can you play music?",
+            "question": "can you play music?",
             "answer": "I'm sorry, I can't play music. I'm designed to provide information and answer questions."
         },
         {
-            "question": "Can you learn new things?",
+            "question": "can you learn new things?",
             "answer": "Yes, I can learn new things through programming and data."
-        },
-        {
-            "question": "hi",
-            "answer": "Hello :)"
-        },
-        {
-            "question": "Hi",
-            "answer": "Hello :)"
         }
     ]
 }

@@ -51,7 +51,7 @@ def run_bot():
         if question.lower() == 'exit':
             break
 
-        answer = find_answer(knowledge_base, question)
+        answer = find_answer(knowledge_base, question.lower())
         if answer:
             print(f"Sam: {answer}")
             engine.say(answer)
