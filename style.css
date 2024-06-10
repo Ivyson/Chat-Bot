@@ -1,0 +1,102 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(22, 20, 20);
+    overflow-y: hidden;
+}
+.home{
+    display: flex;
+    background-color: rgb(68, 68, 71);
+    height: 5vw;
+}
+.home button{
+    display: flex;
+    align-items: center;
+    margin-top: 1.5%;
+    background-color: transparent;
+    border: 0 ;
+    height: 2vw;
+    width: 7vw;
+    border: 3px rebeccapurple solid ;
+}
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 300px;
+    font-size: 25px;
+    color: white;
+}
+.sidebar{
+    background-color: rgb(22, 20, 20);
+    position: absolute;
+    width: 30%;
+    height: 89.5%;
+    /* border: 4px red solid; */
+    border-right: 2px white solid;
+    border-top-right-radius: 50px;
+    overflow-y: auto;
+}
+.sidebar hr{
+    margin-top: 15%;
+    color: rgb(74, 72, 72);
+
+}
+.new-chat{
+    /* border: 4px red solid; */
+    position: absolute;
+    width: 100%;
+    height: 5vw;
+    display: flex;
+}
+.new-chat button{
+    width: 10vw;
+    background-color: transparent;
+    border: transparent;
+    /* border-bottom: 2px grey solid; */
+}
+.main-page{
+    background-color: rgb(22, 20, 20);
+    height: 42.69vw;
+    /* display: flex; */
+    /* border: 3px white solid; */
+    margin-left: 30vw;
+    overflow-y: auto;
+}
+.main-page .message{
+    /* border:  4px blue solid; */
+    border-top: 2px rgb(74, 72, 72) solid;
+    width: 100%;
+    height: 5vw;
+    /* position: absolute; */
+    /* background-color: white; */
+    margin-top: 40.3%;
+    display: flex;
+}
+.main-page .message input{
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    width: 95%;
+    height: 100%;
+    font-size: 2vw;
+    border: transparent;
+}
+.main-page .message button{
+    background-color: transparent;
+    border: transparent;
+}
+.main-page .responses{
+    height: 10vw;
+    width: 10vw;
+    background-color: white;
+}
+/* .main-page label{
+    background-color: white;
+    height: 20vw;
+    width: 100%;
+} */
