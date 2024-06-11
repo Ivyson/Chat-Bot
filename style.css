@@ -8,30 +8,34 @@ body{
     overflow-y: hidden;
 }
 .home{
-    display: flex;
+    /* display: flex; */
     background-color: rgb(68, 68, 71);
     height: 5vw;
 }
 .home button{
     display: flex;
     align-items: center;
-    margin-top: 1.5%;
+    /* margin-top: 1.5%; */
+    margin-left: 1.5%;
     background-color: transparent;
     border: 0 ;
-    height: 2vw;
-    width: 7vw;
+    height: 100%;
+    justify-content: center;
+    width: 10%;
     /* border: 3px rebeccapurple solid ; */
 }
 button{
+    color: white;
+    /* 
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     width: 300px;
     font-size: 25px;
-    color: white;
-    cursor: pointer;
-}
+    
+    cursor: pointer;*/
+} 
 .sidebar{
     background-color: rgb(22, 20, 20);
     position: absolute;
@@ -44,7 +48,7 @@ button{
     overflow-y: auto;
 }
 .sidebar hr{
-    /* margin-top: 15%; */
+    margin-top: 15%;
     color: rgb(74, 72, 72);
 
 }
@@ -95,16 +99,16 @@ button{
     align-items: center;
     justify-content: center;
     background-color: transparent;
-    margin-top: 10px;
-    width: 50px;
+    /* margin-top: 2%; */
+    width: 5%;
     /* border: 2px red solid; */
     border: transparent;
 }
 .main-page .responses{
-    height: 4vw;
+    height: 10%;
     width: 100%;
     background-color: rgb(33, 31, 31);
-    border-bottom-right-radius: 25px;
+    border-bottom-right-radius: 7.8%;
     display: flex;
 }
 .main-page .responses label{
@@ -115,7 +119,7 @@ button{
     background-color: transparent;
     width: 100%;
     height: 100%;
-    font-size: 2vw;
+    font-size: 2%;
     color: white;
     margin-left: 10px;
 }
