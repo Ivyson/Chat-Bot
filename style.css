@@ -30,6 +30,7 @@ button{
     width: 300px;
     font-size: 25px;
     color: white;
+    cursor: pointer;
 }
 .sidebar{
     background-color: rgb(22, 20, 20);
