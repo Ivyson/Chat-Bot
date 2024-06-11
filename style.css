@@ -1,121 +1,109 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     background-color: rgb(22, 20, 20);
     overflow-y: hidden;
+    color: white;
+    font-family: Arial, sans-serif;
 }
-.home{
-    display: flex;
-    background-color: rgb(68, 68, 71);
-    height: 5vw;
-}
-.home button{
+
+.home {
     display: flex;
     align-items: center;
-    margin-top: 1.5%;
-    background-color: transparent;
-    border: 0 ;
-    height: 2vw;
-    width: 7vw;
-    /* border: 3px rebeccapurple solid ; */
+    background-color: rgb(68, 68, 71);
+    height: 5vw;
+    padding-left: 1vw;
 }
-button{
+
+.home button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5vw;
+}
+
+button {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 300px;
-    font-size: 25px;
+    font-size: 1.5vw;
     color: white;
     cursor: pointer;
 }
-.sidebar{
+
+.sidebar {
     background-color: rgb(22, 20, 20);
     position: absolute;
     width: 30%;
-    height: 89.5%;
-    /* border: 4px red solid; */
+    height: 95%;
     border-right: 2px white solid;
-    /* border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px; */
     overflow-y: auto;
 }
-.sidebar hr{
+
+.sidebar hr {
     margin-top: 15%;
     color: rgb(74, 72, 72);
+}
 
-}
-.new-chat{
-    /* border: 4px red solid; */
-    position: absolute;
+.new-chat {
     width: 100%;
-    height: 5vw;
-    display: flex;
+    padding: 1vw;
 }
-.new-chat button{
+
+.new-chat button {
     width: 100%;
     background-color: transparent;
-    /* border: transparent; */
-    /* border: 3px solid red; */
-    /* border-bottom: 2px grey solid; */
+    border: none;
+    font-size: 1.5vw;
 }
-.main-page{
+
+.main-page {
     background-color: rgb(22, 20, 20);
-    height: 42.69vw;
-    /* display: flex; */
-    /* border: 3px white solid; */
-    margin-left: 30vw;
+    margin-left: 30%;
+    height: 95%;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-.main-page .message{
-    /* border:  4px blue solid; */
+
+.message-bar {
     border-top: 2px rgb(74, 72, 72) solid;
-    width: 100%;
-    height: 4vw;
-    /* position: absolute; */
-    /* background-color: white; */
-    margin-top: 50.3%;
-    display: flex;
-}
-.main-page .message input{
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    width: 95%;
-    height: 100%;
-    font-size: 2vw;
-    /* border: 2px solid papayawhip; */
-    border: transparent;
-}
-.main-page .message button{
+    padding: 1vw;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    margin-top: 10px;
-    width: 50px;
-    /* border: 2px red solid; */
-    border: transparent;
 }
-.main-page .responses{
-    height: 4vw;
-    width: 100%;
+
+.message-bar input {
+    background-color: transparent;
+    border: none;
+    width: 90%;
+    font-size: 1.5vw;
+    color: white;
+}
+
+.message-bar button {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5vw;
+    color: white;
+}
+
+.responses {
+    padding: 1vw;
     background-color: rgb(33, 31, 31);
     border-bottom-right-radius: 25px;
     display: flex;
-}
-.main-page .responses label{
-    display: flex;
-    text-align: center;
-    /* justify-content: center; */
     align-items: center;
-    background-color: transparent;
-    width: 100%;
-    height: 100%;
-    font-size: 2vw;
-    color: white;
+}
+
+.responses label {
+    font-size: 1.5vw;
     margin-left: 10px;
 }
