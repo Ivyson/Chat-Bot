@@ -10,10 +10,12 @@ function sendMessage() {
 
     const messageContainer = document.getElementById('messages');
     const userMessageElement = document.createElement('div');
-    userMessageElement.textContent = `You : ${userInput}`;
+    userMessageElement.textContent = `${userInput}`;
     userMessageElement.style.backgroundColor = 'red';
     userMessageElement.style.color = "white";
     userMessageElement.style.height = '2vw';
+    userMessageElement.style.textAlign = 'right';
+    userMessageElement.style.paddingRight = "10px"
     messageContainer.appendChild(userMessageElement);
 
     fetch('http://127.0.0.1:5000/api/chat', {
@@ -26,15 +28,19 @@ function sendMessage() {
     .then(response => response.json())
     .then(data => {
         const botMessageElement = document.createElement('div');
-        botMessageElement.textContent = `Sam : ${data.response}`;
+        botMessageElement.textContent = `${data.response}`;
         botMessageElement.style.backgroundColor = 'blue';
         botMessageElement.style.color = "white";
         botMessageElement.style.height = '2vw';
-        messageContainer.appendChild(botMessageElement);
+        botMessageElement.style.textAlign = 'left';
+        
 
         if (data.response === "I don't know the answer. Please teach me.") {
-            teachBot(userInput);
+            // teachBot(userInput);
+            botMessageElement.textContent = `I did not understand Your question, I am yet to be updated..`;
+
         }
+        messageContainer.appendChild(botMessageElement);
     })
     .catch(error => {
         console.error('Error:', error);
@@ -63,4 +69,7 @@ function teachBot(userQuestion) {
             alert('Failed to teach the bot. Please ensure the backend server is running.');
         });
     }
+}
+function teach(){
+    return ""
 }
