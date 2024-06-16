@@ -67,26 +67,6 @@ button{
     margin-top: 50.3%;
     display: flex;
 }
-/* .main-page .message input{
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    width: 95%;
-    height: 100%;
-    font-size: 2vw;
-    /* border: 2px solid papayawhip; */
-    /* border: transparent; */
-/* } */ 
-/* .main-page .message button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    /* margin-top: 2%; */
-    /* width: 5%; */
-    /* border: 2px red solid; */
-    /* border: transparent; */
-/* } */ 
 .main-page .responses{
     height: 10%;
     width: 100%;
