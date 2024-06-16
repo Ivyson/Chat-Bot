@@ -3,6 +3,7 @@ import json
 import os
 import difflib
 from flask_cors import CORS
+import random
 
 app = Flask(__name__)
 CORS(app)
@@ -14,29 +15,33 @@ def load_knowledge_base(file_path):
             try:
                 return json.load(file)
             except json.JSONDecodeError:
-                return {"questions": []}
+                return {"contexts": []}
     else:
-        return {"questions": []}
+        return {"contexts": []}
 
 def save_knowledge_base(file_path, knowledge_base):
     with open(file_path, 'w') as file:
         json.dump(knowledge_base, file, indent=4)
 
 def find_answer(knowledge_base, question, threshold=0.6):
-    questions = [entry["question"] for entry in knowledge_base["questions"]]
-    closest_matches = difflib.get_close_matches(question, questions, n=1, cutoff=threshold)
-    
-    if closest_matches:
-        best_match = closest_matches[0]
-        for entry in knowledge_base["questions"]:
-            if entry["question"].lower() == best_match.lower():
-                return entry["answer"]
+    for context in knowledge_base["contexts"]:
+        closest_matches = difflib.get_close_matches(question, context["questions"], n=1, cutoff=threshold)
+        if closest_matches:
+            return random.choice(context["answers"])
     return None
 
-def add_question(knowledge_base, question, answer):
-    knowledge_base["questions"].append({
-        "question": question,
-        "answer": answer
+def add_question(knowledge_base, context_name, question, answer):
+    for context in knowledge_base["contexts"]:
+        if context["context"].lower() == context_name.lower():
+            context["questions"].append(question)
+            context["answers"].append(answer)
+            save_knowledge_base('data.json', knowledge_base)
+            return
+    # If context does not exist, create a new one
+    knowledge_base["contexts"].append({
+        "context": context_name,
+        "questions": [question],
+        "answers": [answer]
     })
     save_knowledge_base('data.json', knowledge_base)
 
@@ -58,10 +63,11 @@ def chat():
 def teach():
     knowledge_base = load_knowledge_base('data.json')
     data = request.get_json()
+    context = data.get('context').lower()
     question = data.get('question').lower()
     answer = data.get('answer')
     
-    add_question(knowledge_base, question, answer)
+    add_question(knowledge_base, context, question, answer)
     return jsonify({'message': 'Thank you! I\'ve learned something new.'})
 
 if __name__ == '__main__':

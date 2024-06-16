@@ -1,80 +1,136 @@
 {
-    "questions": [
+    "contexts": [
         {
-            "question": "hello",
-            "answer": "Hello, How are You?"
+            "context": "greetings",
+            "questions": ["hello", "hi", "hey", "good morning", "good afternoon", "good evening", "howdy", "greetings", "hiya"],
+            "answers": [
+                "Hello, How are You?",
+                "Hi there! How can I assist you today?",
+                "Hey! What's up?",
+                "Good morning! How can I help?",
+                "Good afternoon! What can I do for you?",
+                "Good evening! How can I assist?",
+                "Howdy! How can I help you today?",
+                "Greetings! How may I assist you?",
+                "Hiya! How's it going?"
+            ]
         },
         {
-            "question": "how are you?",
-            "answer": "I am a bot, so I do not have the capacity to possess feelings, but thank you for your concern :)"
+            "context": "wellbeing",
+            "questions": ["how are you?", "how are you doing?", "how's it going?", "how have you been?", "what's up?", "how's everything?", "how are things?"],
+            "answers": [
+                "I am a bot, so I do not have the capacity to possess feelings, but thank you for your concern :)",
+                "I'm just a bot, but thanks for asking! How can I assist you?",
+                "I'm here to help you! What do you need?",
+                "As a bot, I don't have feelings, but I'm ready to help you!",
+                "I am functioning at full capacity. How can I help you?",
+                "All systems are operational. How can I assist?",
+                "I am here to assist you with whatever you need."
+            ]
         },
         {
-            "question": "i am good",
-            "answer": "How can I help you today?"
+            "context": "help",
+            "questions": ["can you help me?", "i need help", "assist me please", "can you assist me?", "i need assistance", "help me out", "can you give me a hand?"],
+            "answers": [
+                "Of course! How can I help you?",
+                "Sure, let me know what you need assistance with.",
+                "I'm here to help! What do you need?",
+                "Yes, I'd be happy to assist. What do you need?",
+                "I'm here to help you. Please tell me what you need assistance with.",
+                "Absolutely, how can I be of service?",
+                "I am ready to assist you. Please let me know how I can help."
+            ]
         },
         {
-            "question": "what can you do?",
-            "answer": "I can help answer questions, provide information, assist with tasks, and more. Feel free to ask me anything!"
+            "context": "jokes",
+            "questions": ["can you tell me a joke?", "tell me a joke", "make me laugh", "do you know any jokes?", "got any jokes?", "can you make me laugh?", "i need a joke"],
+            "answers": [
+                "Sure, here's one: Why did the scarecrow win an award? Because he was outstanding in his field!",
+                "Why don't scientists trust atoms? Because they make up everything!",
+                "What do you call fake spaghetti? An impasta!",
+                "Why don't skeletons fight each other? They don't have the guts.",
+                "What do you get when you cross a snowman and a vampire? Frostbite!",
+                "Why did the math book look sad? Because it had too many problems.",
+                "Why don't some couples go to the gym? Because some relationships don't work out."
+            ]
         },
         {
-            "question": "can you tell me a joke?",
-            "answer": "Sure, here's one: Why did the scarecrow win an award? Because he was outstanding in his field!"
+            "context": "identity",
+            "questions": ["what is your name?", "who are you?", "introduce yourself", "what should I call you?", "who am I talking to?", "what's your name?", "can you tell me your name?"],
+            "answers": [
+                "I am a bot created to assist you.",
+                "I'm your friendly assistant bot!",
+                "You can call me your digital helper.",
+                "I am your assistant bot, here to help you.",
+                "You are talking to your helpful assistant bot.",
+                "I am a virtual assistant designed to help you.",
+                "You can refer to me as your digital assistant."
+            ]
         },
         {
-            "question": "what is your favorite color?",
-            "answer": "As a bot, I don't have preferences like humans do, but I think all colors are beautiful!"
+            "context": "capabilities",
+            "questions": ["what can you do?", "what are your capabilities?", "how can you help me?", "what services do you offer?", "what tasks can you perform?", "how can you assist me?", "what are you able to do?"],
+            "answers": [
+                "I can help answer questions, provide information, assist with tasks, and more. Feel free to ask me anything!",
+                "I am here to assist you with various tasks, answer your questions, and provide information.",
+                "I can perform a wide range of tasks including answering questions, providing information, and offering assistance.",
+                "My capabilities include answering queries, providing information, and helping with tasks.",
+                "I am able to help you with a variety of tasks, from answering questions to providing detailed information.",
+                "I offer assistance with numerous tasks, information retrieval, and answering questions.",
+                "Feel free to ask me anything! I'm here to help with various tasks and provide information."
+            ]
         },
         {
-            "question": "do you dream?",
-            "answer": "No, I don't dream like humans do. I process information and respond based on programmed instructions."
+            "context": "learning",
+            "questions": ["how do you learn?", "can you learn new things?", "do you learn?", "are you capable of learning?", "how are you updated?", "how do you acquire new information?", "can you be taught?"],
+            "answers": [
+                "I learn through data and programming. Developers continuously update and train me to improve my capabilities.",
+                "Yes, I can learn new things through programming and data updates.",
+                "I am designed to learn from new data and updates provided by developers.",
+                "My learning process involves updates and programming by my developers.",
+                "I acquire new information through data updates and programming.",
+                "Developers teach me new things by updating my data and programming.",
+                "I am continuously updated and trained to learn new things and improve my responses."
+            ]
         },
         {
-            "question": "how do you learn?",
-            "answer": "I learn through data and programming. Developers continuously update and train me to improve my capabilities."
+            "context": "weather",
+            "questions": ["what's the weather like today?", "can you tell me the weather?", "what is the weather?", "how is the weather today?", "is it going to rain?", "what's the forecast?", "do you know the weather?"],
+            "answers": [
+                "I don't have real-time data access. You can check the weather by using a weather app or website.",
+                "I'm unable to provide real-time weather updates. Please use a weather service for the latest information.",
+                "I suggest using a weather application or website for the current weather information.",
+                "For the latest weather updates, please refer to a weather app or website.",
+                "I can't provide real-time weather data. Please check a weather service for updates.",
+                "You can get the latest weather information from a dedicated weather app or website.",
+                "Real-time weather updates are best obtained from weather apps or websites."
+            ]
         },
         {
-            "question": "are you always right?",
-            "answer": "I strive to provide accurate information, but I'm not infallible. Always double-check critical information for confirmation."
+            "context": "preferences",
+            "questions": ["what is your favorite color?", "do you have a favorite color?", "what color do you like?", "do you like any colors?", "what color do you prefer?", "tell me your favorite color", "what's your favorite color?"],
+            "answers": [
+                "As a bot, I don't have preferences like humans do, but I think all colors are beautiful!",
+                "I don't have personal preferences, but I appreciate the beauty of all colors.",
+                "I don't have a favorite color, but I believe all colors are wonderful.",
+                "Being a bot, I don't have preferences, but I find all colors fascinating.",
+                "I can't choose a favorite color, but every color has its own charm.",
+                "I don't have personal likes, but I think every color is unique and beautiful.",
+                "I am a bot without preferences, but I appreciate all colors equally."
+            ]
         },
         {
-            "question": "can you code?",
-            "answer": "I don't write code like a human programmer, but I can help with coding-related questions and provide examples."
-        },
-        {
-            "question": "what's the weather like today?",
-            "answer": "I don't have real-time data access. You can check the weather by using a weather app or website."
-        },
-        {
-            "question": "what is your name?",
-            "answer": "I am a bot created to assist you."
-        },
-        {
-            "question": "can you help me with my homework?",
-            "answer": "I can certainly try! What do you need help with?"
-        },
-        {
-            "question": "can you speak other languages?",
-            "answer": "Yes, I can communicate in multiple languages."
-        },
-        {
-            "question": "can you tell me another joke?",
-            "answer": "Sure, here's one: Why don't scientists trust atoms? Because they make up everything!"
-        },
-        {
-            "question": "what is AI?",
-            "answer": "AI, or Artificial Intelligence, is a field of computer science that involves creating machines that mimic human intelligence."
-        },
-        {
-            "question": "who created you?",
-            "answer": "I was created by a team of developers."
-        },
-        {
-            "question": "can you play music?",
-            "answer": "I'm sorry, I can't play music. I'm designed to provide information and answer questions."
-        },
-        {
-            "question": "can you learn new things?",
-            "answer": "Yes, I can learn new things through programming and data."
+            "context": "dreams",
+            "questions": ["do you dream?", "can you dream?", "what do you dream about?", "do you have dreams?", "tell me about your dreams", "do bots dream?", "what do you dream?"],
+            "answers": [
+                "No, I don't dream like humans do. I process information and respond based on programmed instructions.",
+                "I don't have dreams. My operations are based on programming and data.",
+                "As a bot, I don't experience dreams. I function based on my programming.",
+                "I don't dream. My responses are generated through programmed instructions.",
+                "Bots like me don't have dreams. We operate based on data and programming.",
+                "I don't have the capability to dream. My responses are a result of programmed data.",
+                "Dreaming is not something I do. My functioning relies on programming and data processing."
+            ]
         }
     ]
 }
