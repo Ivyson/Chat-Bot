@@ -11,6 +11,9 @@ function sendMessage() {
     const messageContainer = document.getElementById('messages');
     const userMessageElement = document.createElement('div');
     userMessageElement.textContent = `You : ${userInput}`;
+    userMessageElement.style.backgroundColor = 'red';
+    userMessageElement.style.color = "white";
+    userMessageElement.style.height = '2vw';
     messageContainer.appendChild(userMessageElement);
 
     fetch('http://127.0.0.1:5000/api/chat', {
@@ -24,6 +27,9 @@ function sendMessage() {
     .then(data => {
         const botMessageElement = document.createElement('div');
         botMessageElement.textContent = `Sam : ${data.response}`;
+        botMessageElement.style.backgroundColor = 'blue';
+        botMessageElement.style.color = "white";
+        botMessageElement.style.height = '2vw';
         messageContainer.appendChild(botMessageElement);
 
         if (data.response === "I don't know the answer. Please teach me.") {

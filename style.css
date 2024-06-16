@@ -54,6 +54,7 @@ button{
 }
 .new-chat{
     /* border: 4px red solid; */
+    border: transparent;
     position: absolute;
     width: 100%;
     height: 5vw;

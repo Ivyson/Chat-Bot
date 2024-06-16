@@ -19,7 +19,7 @@
             "context": "wellbeing",
             "questions": ["how are you?", "how are you doing?", "how's it going?", "how have you been?", "what's up?", "how's everything?", "how are things?"],
             "answers": [
-                "I am a bot, so I do not have the capacity to possess feelings, but thank you for your concern :)",
+                "I am a bot, so I do not have the capacity to possess feelings, but thank you for your concern ",
                 "I'm just a bot, but thanks for asking! How can I assist you?",
                 "I'm here to help you! What do you need?",
                 "As a bot, I don't have feelings, but I'm ready to help you!",
