@@ -23,7 +23,7 @@ def save_knowledge_base(file_path, knowledge_base):
     with open(file_path, 'w') as file:
         json.dump(knowledge_base, file, indent=4)
 
-def find_answer(knowledge_base, question, similarity_threshold=0.7):
+def find_answer(knowledge_base, question, similarity_threshold=0.8):
     best_match = None
     highest_similarity = 0
 
