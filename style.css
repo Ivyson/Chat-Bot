@@ -9,7 +9,6 @@ body{
     overflow-y: hidden;
 }
 .home{
-    /* display: flex; */
     background-color: rgb(68, 68, 71);
     height: 5vw;
     display: flex;
@@ -30,14 +29,10 @@ button{
     height: 89.7%;
     /* border: 4px red solid; */
     border-right: 2px white solid;
-    /* border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px; */
     overflow-y: auto;
 }
 .sidebar hr{
     margin-top: 15%;
-    /* color: rgb(74, 72, 72); */
-
 }
 .new-chat{
     /* border: 4px red solid; */
