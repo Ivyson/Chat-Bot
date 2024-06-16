@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import json
 import os
-import difflib
+import Levenshtein
 from flask_cors import CORS
 import random
 
@@ -23,16 +23,22 @@ def save_knowledge_base(file_path, knowledge_base):
     with open(file_path, 'w') as file:
         json.dump(knowledge_base, file, indent=4)
 
-def find_answer(knowledge_base, question, threshold=0.6):
-    question_length = len(question)
+def find_answer(knowledge_base, question, length_threshold=0.3, similarity_threshold=0.6):
+    best_match = None
+    highest_similarity = 0
+
     for context in knowledge_base["contexts"]:
         for stored_question in context["questions"]:
-            length_similarity = abs(len(stored_question) - question_length) / max(len(stored_question), question_length)
-            if length_similarity < threshold:
-                string_similarity = difflib.SequenceMatcher(None, stored_question, question).ratio()
-                if string_similarity >= threshold:
-                    return random.choice(context["answers"])
-    return None
+            # Calculate length similarity
+            length_similarity = abs(len(stored_question) - len(question)) / max(len(stored_question), len(question))
+            if length_similarity < length_threshold:
+                # Calculate string similarity using Levenshtein distance
+                string_similarity = Levenshtein.ratio(stored_question, question)
+                if string_similarity >= similarity_threshold and string_similarity > highest_similarity:
+                    highest_similarity = string_similarity
+                    best_match = random.choice(context["answers"])
+
+    return best_match
 
 def add_question(knowledge_base, context_name, question, answer):
     for context in knowledge_base["contexts"]:
