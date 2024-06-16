@@ -1,7 +1,11 @@
+from flask import Flask, request, jsonify
 import json
 import os
 import difflib
-import pyttsx3
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)
 
 # Load the knowledge base from the JSON file
 def load_knowledge_base(file_path):
@@ -20,7 +24,7 @@ def save_knowledge_base(file_path, knowledge_base):
 
 def find_answer(knowledge_base, question, threshold=0.6):
     questions = [entry["question"] for entry in knowledge_base["questions"]]
-    closest_matches = difflib.get_close_matches(question, questions, n= 1, cutoff=threshold)
+    closest_matches = difflib.get_close_matches(question, questions, n=1, cutoff=threshold)
     
     if closest_matches:
         best_match = closest_matches[0]
@@ -34,32 +38,31 @@ def add_question(knowledge_base, question, answer):
         "question": question,
         "answer": answer
     })
+    save_knowledge_base('data.json', knowledge_base)
 
-def run_bot(): #/////Main function to run the bot/////
-    engine = pyttsx3.init()
-    rate = engine.getProperty('rate')
-    engine.setProperty('rate', rate-50)
-    file_path = 'data.json'
-    knowledge_base = load_knowledge_base(file_path)
+@app.route('/api/chat', methods=['POST'])
+def chat():
+    knowledge_base = load_knowledge_base('data.json')
+    data = request.get_json()
+    user_message = data.get('message').lower()
+    
+    answer = find_answer(knowledge_base, user_message)
+    if answer:
+        response_message = answer
+    else:
+        response_message = "I don't know the answer. Please teach me."
+    
+    return jsonify({'response': response_message})
 
-    while True:
-        question = input("You: ")
-        if question.lower() == 'exit':
-            break
+@app.route('/api/teach', methods=['POST'])
+def teach():
+    knowledge_base = load_knowledge_base('data.json')
+    data = request.get_json()
+    question = data.get('question').lower()
+    answer = data.get('answer')
+    
+    add_question(knowledge_base, question, answer)
+    return jsonify({'message': 'Thank you! I\'ve learned something new.'})
 
-        answer = find_answer(knowledge_base, question.lower())
-        if answer:
-            print(f"Sam: {answer}")
-            engine.say(answer)
-            engine.runAndWait()
-        else:
-            answer = input("I don't know the answer. Please teach me or skip this by typing skip :) : ")
-            if answer.lower() == 'skip':
-                continue
-            else:
-                add_question(knowledge_base, question, answer)
-                save_knowledge_base(file_path, knowledge_base)
-                print("Thank you! I've learned something new.")
-
-if __name__ == "__main__":
-    run_bot()
+if __name__ == '__main__':
+    app.run(debug=True)
