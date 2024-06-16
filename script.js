@@ -11,11 +11,13 @@ function sendMessage() {
     const messageContainer = document.getElementById('messages');
     const userMessageElement = document.createElement('div');
     userMessageElement.textContent = `${userInput}`;
-    userMessageElement.style.backgroundColor = 'red';
+    // userMessageElement.style.backgroundColor = 'red';
     userMessageElement.style.color = "white";
     userMessageElement.style.height = '2vw';
     userMessageElement.style.textAlign = 'right';
     userMessageElement.style.paddingRight = "10px"
+    userMessageElement.style.marginTop = "10px"
+    userMessageElement.style.borderBottom = "1px solid grey";
     messageContainer.appendChild(userMessageElement);
 
     fetch('http://127.0.0.1:5000/api/chat', {
@@ -29,9 +31,12 @@ function sendMessage() {
     .then(data => {
         const botMessageElement = document.createElement('div');
         botMessageElement.textContent = `${data.response}`;
-        botMessageElement.style.backgroundColor = 'blue';
+        // botMessageElement.style.backgroundColor = 'blue';
         botMessageElement.style.color = "white";
         botMessageElement.style.height = '2vw';
+        botMessageElement.style.paddingLeft = "10px"
+        botMessageElement.style.borderBottom = "1px solid grey";
+        botMessageElement.style.marginTop = "10px"
         botMessageElement.style.textAlign = 'left';
         
 
