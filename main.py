@@ -23,20 +23,17 @@ def save_knowledge_base(file_path, knowledge_base):
     with open(file_path, 'w') as file:
         json.dump(knowledge_base, file, indent=4)
 
-def find_answer(knowledge_base, question, length_threshold=0.3, similarity_threshold=0.6):
+def find_answer(knowledge_base, question, similarity_threshold=0.7):
     best_match = None
     highest_similarity = 0
 
     for context in knowledge_base["contexts"]:
         for stored_question in context["questions"]:
-            # Calculate length similarity
-            length_similarity = abs(len(stored_question) - len(question)) / max(len(stored_question), len(question))
-            if length_similarity < length_threshold:
-                # Calculate string similarity using Levenshtein distance
-                string_similarity = Levenshtein.ratio(stored_question, question)
-                if string_similarity >= similarity_threshold and string_similarity > highest_similarity:
-                    highest_similarity = string_similarity
-                    best_match = random.choice(context["answers"])
+            # Calculate string similarity using Levenshtein distance
+            string_similarity = Levenshtein.ratio(stored_question.lower(), question.lower())
+            if string_similarity > highest_similarity and string_similarity >= similarity_threshold:
+                highest_similarity = string_similarity
+                best_match = random.choice(context["answers"])
 
     return best_match
 
