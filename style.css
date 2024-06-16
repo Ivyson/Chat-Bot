@@ -20,6 +20,8 @@ body{
 }
 .home img{
     height: 100%;
+    /* color: white; */
+    /* background-color: white; */
 }
 button{
     color: white;    
