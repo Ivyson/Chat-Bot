@@ -44,7 +44,7 @@ button{
     background-color: rgb(22, 20, 20);
     position: absolute;
     width: 30%;
-    height: 89.5%;
+    height: 89.7%;
     /* border: 4px red solid; */
     border-right: 2px white solid;
     /* border-top-right-radius: 50px;
@@ -53,7 +53,7 @@ button{
 }
 .sidebar hr{
     margin-top: 15%;
-    color: rgb(74, 72, 72);
+    /* color: rgb(74, 72, 72); */
 
 }
 .new-chat{
@@ -153,6 +153,7 @@ button{
     margin-left: 10px;
     border-radius: 25px;
     padding-left: 30px;
+    /* box-shadow: 10px; */
 }
 .messages button{
     background-color: transparent;

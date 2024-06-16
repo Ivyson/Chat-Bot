@@ -24,10 +24,14 @@ def save_knowledge_base(file_path, knowledge_base):
         json.dump(knowledge_base, file, indent=4)
 
 def find_answer(knowledge_base, question, threshold=0.6):
+    question_length = len(question)
     for context in knowledge_base["contexts"]:
-        closest_matches = difflib.get_close_matches(question, context["questions"], n=1, cutoff=threshold)
-        if closest_matches:
-            return random.choice(context["answers"])
+        for stored_question in context["questions"]:
+            length_similarity = abs(len(stored_question) - question_length) / max(len(stored_question), question_length)
+            if length_similarity < threshold:
+                string_similarity = difflib.SequenceMatcher(None, stored_question, question).ratio()
+                if string_similarity >= threshold:
+                    return random.choice(context["answers"])
     return None
 
 def add_question(knowledge_base, context_name, question, answer):
