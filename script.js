@@ -2,11 +2,24 @@ function startNewChat() {
     document.getElementById('messages').innerHTML = '';
 }
 
+let scroller = document.getElementsByClassName("main-page")[0];
+    scroller.onscroll = function() {
+        console.log(scroller.scrollTop);
+
+    }
+    
+
 function sendMessage() {
     const userInput = document.getElementById('user-input').value;
     if (!userInput.trim()) {
         return;
     }
+    
+    console.log(scroller);
+    console.log(scroller.scrollTop);
+    // scroller.style.scr
+    // scroller.scrollTop = 100;
+    
 
     const messageContainer = document.getElementById('messages');
     const userMessageElement = document.createElement('div');
@@ -46,6 +59,10 @@ function sendMessage() {
 
         }
         messageContainer.appendChild(botMessageElement);
+        scroller.scrollTo({
+            top: scroller.scrollHeight+100,
+            behavior: 'smooth'
+          });
     })
     .catch(error => {
         console.error('Error:', error);
