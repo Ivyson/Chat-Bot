@@ -121,7 +121,11 @@ button{
     height: 90%;
     background-color: grey;
     border-radius: 50%;
+    transition: background-color 0.5s ease-in-out;
     /* width: 70%; */
     /* margin-left: 10px; */
     /* cursor: pointer; */
+}
+.messages #Send-pic:hover{
+    background-color: wheat;
 }
