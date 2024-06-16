@@ -11,17 +11,21 @@ body{
     /* display: flex; */
     background-color: rgb(68, 68, 71);
     height: 5vw;
-}
-.home button{
     display: flex;
-    align-items: center;
-    /* margin-top: 1.5%; */
-    margin-left: 1.5%;
-    background-color: transparent;
-    border: 0 ;
-    height: 100%;
     justify-content: center;
-    width: 10%;
+    align-items: center;
+}
+.home img{
+    /* display: flex; */
+    /* align-items: center; */
+    /* margin-top: 1.5%; */
+    /* margin-left: 1.5%; */
+    /* background-color: transparent; */
+    /* border: 0 ; */
+    height: 100%;
+    /* justify-content: center;
+    align-items: center; */
+    /* width: 10%; */
     /* border: 3px rebeccapurple solid ; */
 }
 button{
@@ -85,7 +89,7 @@ button{
     margin-top: 50.3%;
     display: flex;
 }
-.main-page .message input{
+/* .main-page .message input{
     background-color: transparent;
     display: flex;
     justify-content: center;
@@ -93,18 +97,18 @@ button{
     height: 100%;
     font-size: 2vw;
     /* border: 2px solid papayawhip; */
-    border: transparent;
-}
-.main-page .message button{
+    /* border: transparent; */
+/* } */ 
+/* .main-page .message button{
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: transparent;
     /* margin-top: 2%; */
-    width: 5%;
+    /* width: 5%; */
     /* border: 2px red solid; */
-    border: transparent;
-}
+    /* border: transparent; */
+/* } */ 
 .main-page .responses{
     height: 10%;
     width: 100%;
