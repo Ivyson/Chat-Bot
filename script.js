@@ -10,7 +10,7 @@ function sendMessage() {
 
     const messageContainer = document.getElementById('messages');
     const userMessageElement = document.createElement('div');
-    userMessageElement.textContent = `User: ${userInput}`;
+    userMessageElement.textContent = `You : ${userInput}`;
     messageContainer.appendChild(userMessageElement);
 
     fetch('http://127.0.0.1:5000/api/chat', {
@@ -23,7 +23,7 @@ function sendMessage() {
     .then(response => response.json())
     .then(data => {
         const botMessageElement = document.createElement('div');
-        botMessageElement.textContent = `Bot: ${data.response}`;
+        botMessageElement.textContent = `Sam : ${data.response}`;
         messageContainer.appendChild(botMessageElement);
 
         if (data.response === "I don't know the answer. Please teach me.") {
