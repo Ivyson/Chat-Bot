@@ -2,7 +2,9 @@
 function startNewChat() {
     document.getElementById('messages').innerHTML = '';
 }
+
 let scroller = document.getElementsByClassName("main-page")[0];
+
 // Function to send a message to the backend
 function sendMessage() {
     const userInput = document.getElementById('user-input').value;
@@ -10,6 +12,7 @@ function sendMessage() {
         return;
     }
     const messageContainer = document.getElementById('messages');
+
     // Create and style the user message element
     const userMessageElement = document.createElement('div');
     userMessageElement.textContent = `${userInput}`;
@@ -49,15 +52,16 @@ function sendMessage() {
             teachBot(userInput);
         }
         messageContainer.appendChild(botMessageElement);
-         scroller.scrollTo({
-        top: scroller.scrollHeight + 100,
-        behavior: 'smooth'
-    });
-        console.log("hi");
-        
+
+        // Scroll to the bottom of the chat container
+        scroller.scrollTo({
+            top: scroller.scrollHeight,
+            behavior: 'smooth'
+        });
+
     })
     .catch(error => {
-        console.error('Error:', error);
+        console.error('Error :', error);
         alert('Failed to send message. Please ensure the backend server is running.');
     });
 
@@ -87,10 +91,10 @@ function teachBot(userQuestion) {
 }
 
 document.addEventListener('keydown', (event) => {
-    if(event.key == 'Enter') {
+    if (event.key == 'Enter') {
         sendMessage();
     }
-})
+});
 
 async function checkstatus() {
     try {
@@ -105,7 +109,6 @@ async function checkstatus() {
             throw new Error('Network response was not ok');
         }
         let data = await response.json();
-        console.log(data.message);
         return data.message;
     } catch (error) {
         console.error('Error:', error);
@@ -115,10 +118,9 @@ async function checkstatus() {
 
 // Function to animate and check the bot status
 async function animate() {
-    let statsbar = document.getElementsByClassName('status-bar')[0]
-    // console.log(1);
+    let statsbar = document.getElementsByClassName('status-bar')[0];
     let stats = await checkstatus();
-    if(!stats) {
+    if (!stats) {
         statsbar.textContent = "Offline";
         statsbar.style.display = 'flex';
         statsbar.style.backgroundColor = 'red';
@@ -129,8 +131,7 @@ async function animate() {
         statsbar.style.backgroundColor = 'green';
         document.getElementById('user-input').style.display = 'flex';
     }
-    
-   
+
     window.requestAnimationFrame(animate);
 }
 
