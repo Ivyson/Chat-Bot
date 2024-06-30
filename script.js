@@ -2,25 +2,14 @@
 function startNewChat() {
     document.getElementById('messages').innerHTML = '';
 }
-
-// Scroll event listener for the main page
-
-// scroller.onscroll = function() {
-//     console.log(scroller.scrollTop);
-// }
-
+let scroller = document.getElementsByClassName("main-page")[0];
 // Function to send a message to the backend
 function sendMessage() {
     const userInput = document.getElementById('user-input').value;
     if (!userInput.trim()) {
         return;
     }
-
-    // console.log(scroller);
-    // console.log(scroller.scrollTop);
-
     const messageContainer = document.getElementById('messages');
-    
     // Create and style the user message element
     const userMessageElement = document.createElement('div');
     userMessageElement.textContent = `${userInput}`;
@@ -31,7 +20,7 @@ function sendMessage() {
     userMessageElement.style.marginTop = "10px";
     userMessageElement.style.borderBottom = "1px solid grey";
     messageContainer.appendChild(userMessageElement);
-
+    
     // Send the user message to the backend
     fetch('http://127.0.0.1:5000/api/chat', {
         method: 'POST',
@@ -123,7 +112,7 @@ async function checkstatus() {
         return null;
     }
 }
-let scroller = document.getElementsByClassName("main-page")[0];
+
 // Function to animate and check the bot status
 async function animate() {
     let statsbar = document.getElementsByClassName('status-bar')[0]
@@ -141,11 +130,6 @@ async function animate() {
         document.getElementById('user-input').style.display = 'flex';
     }
     
-    // console.log(scroller);
-    // console.log(scroller.scrollTo({
-    //     top: scroller.scrollHeight,
-    //     behavior: 'smooth'
-    // }));
    
     window.requestAnimationFrame(animate);
 }
@@ -154,5 +138,4 @@ async function animate() {
 checkstatus();
 
 // Use requestAnimationFrame to repeatedly check the bot status
-// window.requestAnimationFrame(animate);
 animate();
