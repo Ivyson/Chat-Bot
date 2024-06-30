@@ -20,7 +20,7 @@ function sendMessage() {
     userMessageElement.style.marginTop = "10px";
     userMessageElement.style.borderBottom = "1px solid grey";
     messageContainer.appendChild(userMessageElement);
-    
+
     // Send the user message to the backend
     fetch('http://127.0.0.1:5000/api/chat', {
         method: 'POST',
@@ -116,7 +116,7 @@ async function checkstatus() {
 // Function to animate and check the bot status
 async function animate() {
     let statsbar = document.getElementsByClassName('status-bar')[0]
-    console.log(1);
+    // console.log(1);
     let stats = await checkstatus();
     if(!stats) {
         statsbar.textContent = "Offline";

@@ -48,7 +48,7 @@ button{
     display: flex;
 }
 .new-chat button{
-    width: 100%;
+    width: 100%;    
     background-color: transparent;
     border: transparent;
     /* border: 3px solid red; */
