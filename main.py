@@ -98,6 +98,7 @@ def extract_text_from_html(html):
         script.decompose()
     return ' '.join(soup.stripped_strings)
 
+
 def search_google_and_extract(query, num_results=1):
     urls = google_search(query, num_results)
     return urls  # Return only the URLs
