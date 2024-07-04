@@ -1,0 +1,7 @@
+Flask
+flask-cors
+python-Levenshtein
+nltk
+googlesearch-python
+requests
+beautifulsoup4
