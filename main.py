@@ -106,7 +106,7 @@ def search_google_and_extract(query, num_results=1):
 
 @app.route('/api/chat', methods=['POST'])
 def chat():
-    knowledge_base = load_knowledge_base('data.json')
+    knowledge_base = load_knowledge_base('Assets/data.json')
     data = request.get_json()
     user_message = data.get('message').lower()
     
