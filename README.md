@@ -18,5 +18,6 @@ This project is a simple chatbot built using Flask and NLTK. The chatbot uses a 
 - requests
 - beautifulsoup4
 ## Installation
-1. - To clone the repo to your local machine, You can either download the zip version of this repository through by <a href="https://github.com/Ivyson/Chat-Bot/archive/refs/heads/main.zip">Clicking Here!</a>
-I
+1. To clone the repo to your local machine, You can either perform the following tasks
+     - download the zip version of this repository by <a href="https://github.com/Ivyson/Chat-Bot/archive/refs/heads/main.zip">Clicking Here!</a>
+     - Navigate through your terminal and enter : ``` git clone https://github.com/Ivyson/Chat-Bot.git```
