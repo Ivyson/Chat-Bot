@@ -23,7 +23,7 @@ This project is a simple chatbot built using Flask and NLTK. The chatbot uses a 
      - Navigate through your terminal and enter : ``` git clone https://github.com/Ivyson/Chat-Bot.git``` then ``` cd Chat-Bot ```
 2. Create a virtual enviroment(Optional)
     - ### On Windows
-     -Using CMD
+     - Using CMD
      - ``` python -m venv venv && .\venv\Scripts\activate ```
     - ### On MacOS and Linux
      - ``` python3 -m venv venv ``` then ``` source venv/bin/activate ```
