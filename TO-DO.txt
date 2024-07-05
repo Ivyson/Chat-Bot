@@ -1,5 +1,5 @@
 1. Add API calls for basic questionares like "What is the weather "....
-2. Intergrate with Javascript and make this be an online gpt kind of a thing ---Working on it--
+2. Intergrate with Javascript and make this be an online gpt kind of a thing ---Working on it-- ---Done --(Terrible though)
 3. Allow modification of Questions  from the online platform
 4. Have a database to fetch and store the chats...(Maybe mysql)
-5. Create an animation frame in js that tries to access the main.py file using the provided ip address, Append the status of the bot => Mark as offline if the bot is unreachable, mark online if the server is accessable!
+5. Create an animation frame in js that tries to access the main.py file using the provided ip address, Append the status of the bot => Mark as offline if the bot is unreachable, mark online if the server is accessable! -- Done -- (Kinda...)
