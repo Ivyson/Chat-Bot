@@ -19,7 +19,7 @@ This project is a simple chatbot built using Flask and NLTK. The chatbot uses a 
 - beautifulsoup4
 ## Installation
 1. To clone the repo to your local machine, You can perform <b> ONE </b> of the following tasks :
-     - download the zip version of this repository by <a href="https://github.com/Ivyson/Chat-Bot/archive/refs/heads/main.zip">Clicking Here!</a> Or,
+     - download the zip version of this repository by <a href="https://github.com/Ivyson/Chat-Bot/archive/refs/heads/main.zip" style="color:white">Clicking Here!</a> Or,
      - Navigate through your terminal and enter : ``` git clone https://github.com/Ivyson/Chat-Bot.git``` then ``` cd Chat-Bot ```
 2. Create a virtual enviroment(Optional)
     - ### On Windows
@@ -32,7 +32,7 @@ This project is a simple chatbot built using Flask and NLTK. The chatbot uses a 
 2. Install all the required dependencies for this application to run by running the following script: ``` pip install -r requirements.txt ``` . Even easier, if your systems security allows this, you can run a bash file ``` run.sh ``` and it will ensure that everything is done for you, it will even run the python script for you.
  - If the security of your system does not allow running the ``` run.sh ``` file then, after installing the dependencies, ensure that you run the ``` main.py ``` file by entering ``` python main.py ``` on your terminal.
 ## Acknowledgments
-- <a href="https://pypi.org/project/googlesearch-python/">Google Search Python</a>
-- <a href="https://www.nltk.org/">NLTK</a>
-- <a href="https://pypi.org/project/Flask/">FLASK</a>
-- <a href="https://pypi.org/project/beautifulsoup4/">beautifulsoup4</a>
+- <a href="https://pypi.org/project/googlesearch-python/" style="color:white">Google Search Python</a>
+- <a href="https://www.nltk.org/" style="color:white">NLTK</a>
+- <a href="https://pypi.org/project/Flask/" style="color:white">FLASK</a>
+- <a href="https://pypi.org/project/beautifulsoup4/" style="color:white">beautifulsoup4</a>
