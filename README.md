@@ -31,3 +31,8 @@ This project is a simple chatbot built using Flask and NLTK. The chatbot uses a 
 1. Ensure that your current location in your terminal is ``` Chat-Bot ```, You can confirm this by typing ``` pwd ``` in your terminal, If you are indeed in that location then you may proceed to the next step.
 2. Install all the required dependencies for this application to run by running the following script: ``` pip install -r requirements.txt ``` . Even easier, if your systems security allows this, you can run a bash file ``` run.sh ``` and it will ensure that everything is done for you, it will even run the python script for you.
  - If the security of your system does not allow running the ``` run.sh ``` file then, after installing the dependencies, ensure that you run the ``` main.py ``` file by entering ``` python main.py ``` on your terminal.
+## Acknowledgments
+- <a href="https://pypi.org/project/googlesearch-python/">Google Search Python</a>
+- <a href="https://www.nltk.org/">NLTK</a>
+- <a href="https://pypi.org/project/Flask/">FLASK</a>
+- <a href="https://pypi.org/project/beautifulsoup4/">beautifulsoup4</a>
