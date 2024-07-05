@@ -17,6 +17,15 @@ This project is a simple chatbot built using Flask and NLTK. The chatbot uses a 
 - googlesearch-python
 - requests
 - beautifulsoup4
+- This is a normal text.
+
+<span style="color:red">This is red text.</span>
+
+<span style="color:green">This is green text.</span>
+
+## Another Section
+
+More content here.
 ## Installation
 1. To clone the repo to your local machine, You can perform <b> ONE </b> of the following tasks :
      - download the zip version of this repository by <a href="https://github.com/Ivyson/Chat-Bot/archive/refs/heads/main.zip" style="color:white">Clicking Here!</a> Or,
