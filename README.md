@@ -32,10 +32,10 @@ More content here.
      - Navigate through your terminal and enter : ``` git clone https://github.com/Ivyson/Chat-Bot.git``` then ``` cd Chat-Bot ```
 2. Create a virtual enviroment(Optional)
     - ### On Windows
-     - Using CMD
-     - ``` python -m venv venv && .\venv\Scripts\activate ```
+      - Using CMD
+      - ``` python -m venv venv && .\venv\Scripts\activate ```
     - ### On MacOS and Linux
-     - ``` python3 -m venv venv ``` then ``` source venv/bin/activate ```
+      - ``` python3 -m venv venv ``` then ``` source venv/bin/activate ```
 3. Install the dependencies
 1. Ensure that your current location in your terminal is ``` Chat-Bot ```, You can confirm this by typing ``` pwd ``` in your terminal, If you are indeed in that location then you may proceed to the next step.
 2. Install all the required dependencies for this application to run by running the following script: ``` pip install -r requirements.txt ``` . Even easier, if your systems security allows this, you can run a bash file ``` run.sh ``` and it will ensure that everything is done for you, it will even run the python script for you.
