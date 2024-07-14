@@ -1,0 +1,17 @@
+{
+  "name": "chat-bot",
+  "version": "1.0.0",
+  "description": "This project is a simple chatbot built using Flask and NLTK. The chatbot uses a knowledge base stored in a JSON file to answer user questions. If the answer is not found in the knowledge base, it performs a Google search and returns the top search results.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "author": "Sam",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {},
+  "keywords": []
+}

@@ -96,14 +96,14 @@ button{
 }
 .messages{
     height: 5vw;
-    width: 90%;
+    width: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
     border-top: 2px grey solid;
     position: fixed;
     bottom: 0;
-    left: 21.2%;
+    left: 30%;
     /* background-color: rgb(22, 20, 20); */
     /* background-color: red; */
 }
@@ -144,8 +144,7 @@ button{
     display: none;
     position: fixed;
     justify-content: center;
-    margin-left: -8.8%;
-    width: 100%;
+    width: 70%;
     align-items: center;
 }
 .log-in{
