@@ -17,11 +17,6 @@ This project is a simple chatbot built using Flask and NLTK. The chatbot uses a 
 - googlesearch-python
 - requests
 - beautifulsoup4
-- This is a normal text.
-
-<span style="color:red">This is red text.</span>
-
-<span style="color:green">This is green text.</span>
 
 ## Bugs
 
