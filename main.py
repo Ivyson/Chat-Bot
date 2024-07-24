@@ -3,6 +3,7 @@ import json
 import os
 import Levenshtein
 from flask_cors import CORS
+from flask import abort 
 import random
 import nltk
 from nltk.corpus import stopwords
@@ -19,6 +20,7 @@ from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 CORS(app)
+CORS(app, origins="http://127.0.0.1:5500")
 
 # Load the knowledge base from the JSON file
 def load_knowledge_base(file_path):
@@ -129,16 +131,21 @@ def chat():
 @app.route('/api/botstat', methods=['POST'])
 def botstats():
     return jsonify({"message": "Running"})
+
 @app.route('/api/teach', methods=['POST'])
 def teach():
     knowledge_base = load_knowledge_base('data.json')
     data = request.get_json()
-    context = data.get('context').lower()
-    question = data.get('question').lower()
-    answer = data.get('answer')
-    
+    context = data.get('context', '').strip().lower()  # Validate and sanitize context
+    question = data.get('question', '').strip().lower()  # Validate and sanitize question
+    answer = data.get('answer', '')  # No need to sanitize answer here
+
+    if not context or not question:
+        abort(400, 'Invalid request: Context or question is missing or empty')
+
     add_question(knowledge_base, context, question, answer)
     return jsonify({'message': 'Thank you! I\'ve learned something new.'})
+
 
 if __name__ == '__main__':
     app.run(debug=True)

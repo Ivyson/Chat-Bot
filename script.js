@@ -15,7 +15,7 @@ function sendMessage() {
 
     // Create and style the user message element
     const userMessageElement = document.createElement('div');
-    userMessageElement.textContent = `${userInput}`;
+    userMessageElement.innerText = `${userInput}`;
     userMessageElement.style.color = "white";
     userMessageElement.style.height = '2vw';
     userMessageElement.style.textAlign = 'right';
@@ -61,8 +61,8 @@ function sendMessage() {
 
     })
     .catch(error => {
-        console.error('Error :', error);
-        alert('Failed to send message. Please ensure the backend server is running.');
+        console.error('Error : Something went wrong', error);
+        alert('Failed to send message. Please ensure the backend server is running.',error);
     });
 
     document.getElementById('user-input').value = '';
