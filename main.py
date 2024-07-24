@@ -115,17 +115,25 @@ def chat():
     # Search the knowledge base first
     answer = find_answer(knowledge_base, user_message)
     
-    if not answer:
+    # if not answer:
         # If no answer found in the knowledge base, search Google
-        search_results = search_google_and_extract(user_message)
-        if search_results:
-            response_message = "Here are some sources I found:\n" + "\n".join(search_results)
-        else:
-            response_message = "I couldn't find any information. Please try again."
-    else:
-        response_message = answer
+        # search_results = search_google_and_extract(user_message)
+        # print(search_results)
+        # if search_results:
+        #     response_message = "Here are some sources I found:\n" + "\n".join(search_results)
+        # else:
+        #     response_message = "I couldn't find any information. Please try again."
+    # else:
+    # response_message = "Answer not found"
     
-    return jsonify({'response': response_message})
+    # return jsonify({'response': response_message})
+    if not answer:
+        response = "No answer found for your question"
+        return jsonify({'response': response})
+    else:
+        # resonse = "The answer was found"
+        return jsonify({'response': answer })
+    
     
 
 @app.route('/api/botstat', methods=['POST'])

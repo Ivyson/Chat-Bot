@@ -33,6 +33,7 @@ function sendMessage() {
         body: JSON.stringify({ message: userInput })
     })
     .then(response => {
+        console.log(response.status);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -48,9 +49,9 @@ function sendMessage() {
         botMessageElement.style.marginTop = "10px";
         botMessageElement.style.textAlign = 'left';
 
-        if (data.response === "I don't know the answer. Please teach me.") {
-            teachBot(userInput);
-        }
+        // if (data.response === "I don't know the answer. Please teach me.") {
+        //     // teachBot(userInput);
+        // }
         messageContainer.appendChild(botMessageElement);
 
         // Scroll to the bottom of the chat container
