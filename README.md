@@ -23,6 +23,10 @@ This project is a simple chatbot built using Flask and NLTK. The chatbot uses a 
 - The tokenization of the statements isn't so accurate, the bot sometimes give you inacurate answers.
 - The googlesearch Integration is not working so well, I am yet to work on it.
 
+## Potential Updates
+- Flask error handling to ensure that the user also receives the appropriate error codes.
+- For a more robust implementation of this, whereby the chats are being saved in a file or a database, the strings received should be cleaned or sanitised firstly.
+- CORS handling for Cross File Handling.
 
 ## Installation
 1. To clone the repo to your local machine, You can perform <b> ONE </b> of the following tasks :
