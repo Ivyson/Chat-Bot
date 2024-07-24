@@ -23,9 +23,12 @@ This project is a simple chatbot built using Flask and NLTK. The chatbot uses a 
 
 <span style="color:green">This is green text.</span>
 
-## Another Section
+## Bugs
 
-More content here.
+- The tokenization of the statements isn't so accurate, the bot sometimes give you inacurate answers.
+- The googlesearch Integration is not working so well, I am yet to work on it.
+
+
 ## Installation
 1. To clone the repo to your local machine, You can perform <b> ONE </b> of the following tasks :
      - download the zip version of this repository by <a href="https://github.com/Ivyson/Chat-Bot/archive/refs/heads/main.zip" style="color:white">Clicking Here!</a> Or,
