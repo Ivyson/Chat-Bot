@@ -1,26 +1,45 @@
 from flask import Flask, request, jsonify
 import json
 import os
-import Levenshtein
 from flask_cors import CORS
 from flask import abort 
 import random
 import nltk
+import google.generativeai as genai
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
-from googlesearch import search
-import requests
-from bs4 import BeautifulSoup
-
+import difflib
+from dotenv import load_dotenv
+load_dotenv()
+api_key = os.getenv('GEMINI_API_KEY')
+genai.configure(api_key=api_key)
+# Define the model
+generation_config = {
+    "temperature": 1,
+    "top_p": 1,
+    "top_k": 64,
+    "max_output_tokens": 2000,
+    "response_mime_type": "text/plain",
+}
+system_instruction = "Use the given Documents to Answer all of the following questions"
+model = genai.GenerativeModel(
+    model_name='models/gemini-1.5-flash',
+    generation_config=generation_config,
+    system_instruction=system_instruction,
+    tools='code_execution'
+)
+history = []  
 # Download required NLTK data files
-# nltk.download('punkt')
-# nltk.download('stopwords')
-# nltk.download('wordnet')
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
 
 app = Flask(__name__)
-CORS(app)
-CORS(app, origins="http://127.0.0.1:5500")
+# Allow all origins for testing purposes, or specify the correct origin if known
+CORS(app, resources={r"/api/*": {"origins": ["http://127.0.0.1:5000", "http://127.0.0.1:5500"]}})
+
+ 
 
 # Load the knowledge base from the JSON file
 def load_knowledge_base(file_path):
@@ -47,22 +66,16 @@ def preprocess_text(text):
     words = [lemmatizer.lemmatize(word) for word in words]
     return ' '.join(words)
 
-def find_answer(knowledge_base, question, similarity_threshold=0.5):
-    best_match = None
-    highest_similarity = 0
-
-    preprocessed_question = preprocess_text(question)
-
+def find_answer(knowledge_base, question, threshold=0.6):
+    question_length = len(question)
     for context in knowledge_base["contexts"]:
         for stored_question in context["questions"]:
-            preprocessed_stored_question = preprocess_text(stored_question)
-            # Calculate string similarity using Levenshtein distance
-            string_similarity = Levenshtein.ratio(preprocessed_stored_question, preprocessed_question)
-            if string_similarity > highest_similarity and string_similarity >= similarity_threshold:
-                highest_similarity = string_similarity
-                best_match = random.choice(context["answers"])
-
-    return best_match
+            length_similarity = abs(len(stored_question) - question_length) / max(len(stored_question), question_length)
+            if length_similarity < threshold:
+                string_similarity = difflib.SequenceMatcher(None, stored_question, question).ratio()
+                if string_similarity >= threshold:
+                    return random.choice(context["answers"])
+    return None
 
 def add_question(knowledge_base, context_name, question, answer):
     for context in knowledge_base["contexts"]:
@@ -79,66 +92,49 @@ def add_question(knowledge_base, context_name, question, answer):
     })
     save_knowledge_base('data.json', knowledge_base)
 
-def google_search(query, num_results=1):
-    search_results = []
-    for url in search(query, tld="com", num=num_results, stop=num_results, pause=1):
-        search_results.append(url)
-    return search_results
-
-def fetch_page_content(url):
-    try:
-        response = requests.get(url)
-        if response.status_code == 200:
-            return response.text
-        return None
-    except requests.RequestException:
-        return None
-
-def extract_text_from_html(html):
-    soup = BeautifulSoup(html, 'html.parser')
-    for script in soup(['script', 'style']):
-        script.decompose()
-    return ' '.join(soup.stripped_strings)
-
-
-def search_google_and_extract(query, num_results=1):
-    urls = google_search(query, num_results)
-    return urls  # Return only the URLs
-
-
+# @app.route('/api/chat', methods=['POST'])
+# def chat():
+#     # knowledge_base = load_knowledge_base('data.json')
+#     data = request.get_json()
+#     user_message = data.get('message')
+#     # print(data)
+    
+#     # Search the knowledge base first
+#     # answer = find_answer(knowledge_base, user_message)
+#     answer = model.generate_content(user_message,tools='code_execution')
+#      # Store the conversation history
+#     history.append({"role": "user", "parts": [user_message]})
+#     history.append({"role": "model", "parts": [answer.text]})
+#     if not answer:
+#         response = "No answer found for your question"
+#         return jsonify({'response': response})
+#     else:
+#         # resonse = "The answer was found"
+#         return jsonify({'response': answer })
 @app.route('/api/chat', methods=['POST'])
 def chat():
-    knowledge_base = load_knowledge_base('Assets/data.json')
     data = request.get_json()
-    user_message = data.get('message').lower()
-    
-    # Search the knowledge base first
-    answer = find_answer(knowledge_base, user_message)
-    
-    # if not answer:
-        # If no answer found in the knowledge base, search Google
-        # search_results = search_google_and_extract(user_message)
-        # print(search_results)
-        # if search_results:
-        #     response_message = "Here are some sources I found:\n" + "\n".join(search_results)
-        # else:
-        #     response_message = "I couldn't find any information. Please try again."
-    # else:
-    # response_message = "Answer not found"
-    
-    # return jsonify({'response': response_message})
-    if not answer:
-        response = "No answer found for your question"
-        return jsonify({'response': response})
-    else:
-        # resonse = "The answer was found"
-        return jsonify({'response': answer })
-    
-    
+    user_message = data.get('message')
+    chat_session = model.start_chat(
+            history=history
+        )
 
+    try:
+        history.append({"role": "user", "parts": [user_message]})
+        answer = model.generate_content(user_message, tools='code_execution')
+        history.append({"role": "model", "parts": [answer.text]})
+        chat_session = model.start_chat(
+            history=history
+        )
+        return jsonify({'response': answer.text})
+    except Exception as e:
+        # Handle any error that occurs during the model's generation call
+        return jsonify({'error': f"Error generating content: {str(e)}"}), 500
+
+    
 @app.route('/api/botstat', methods=['POST'])
 def botstats():
-    return jsonify({"message": "Running"})
+    return jsonify({"message": 'Running'})
 
 @app.route('/api/teach', methods=['POST'])
 def teach():

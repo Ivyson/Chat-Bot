@@ -6,6 +6,10 @@
     <title>Chat Bot Integration</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="Assets/robot.png" type="image/x-icon">
+
+    <!-- Include markdown-it via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@12.3.2/dist/markdown-it.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-okaidia.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="home">
@@ -29,6 +33,38 @@
         <input type="text" id="user-input" placeholder="Type a message">
         <button onclick="sendMessage()"><img src="Assets/arrow.png" alt="Send" id="Send-pic"></button>
     </div>
+
+    <!-- <script>
+        // Initialize markdown-it
+        const md = window.markdownit();
+
+        function startNewChat() {
+            // Logic for starting a new chat (clearing messages, etc.)
+            document.getElementById('messages').innerHTML = '';
+        }
+
+        function sendMessage() {
+            const userInput = document.getElementById('user-input').value;
+
+            if (userInput.trim()) {
+                // Convert user input from Markdown to HTML using markdown-it
+                const htmlContent = md.render(userInput);
+
+                // Append the converted content to the messages div
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message');
+                messageDiv.innerHTML = htmlContent;
+
+                document.getElementById('messages').appendChild(messageDiv);
+
+                // Clear the input field
+                document.getElementById('user-input').value = '';
+            }
+        }
+    </script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

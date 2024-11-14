@@ -1,4 +1,6 @@
 // Function to clear the chat messages
+const md = window.markdownit()
+.enable('fence') // Enable fenced code blocks
 function startNewChat() {
     document.getElementById('messages').innerHTML = '';
 }
@@ -15,7 +17,10 @@ function sendMessage() {
 
     // Create and style the user message element
     const userMessageElement = document.createElement('div');
-    userMessageElement.innerText = `${userInput}`;
+    // userMessageElement.innerText = `${userInput}`;
+    const userMessageHtml = md.render(userInput);
+    userMessageElement.innerHTML = `${userMessageHtml}`;
+
     userMessageElement.style.color = "white";
     userMessageElement.style.height = '2vw';
     userMessageElement.style.textAlign = 'right';
@@ -23,7 +28,7 @@ function sendMessage() {
     userMessageElement.style.marginTop = "10px";
     userMessageElement.style.borderBottom = "1px solid grey";
     messageContainer.appendChild(userMessageElement);
-
+    Prism.highlightAll();
     // Send the user message to the backend
     fetch('http://127.0.0.1:5000/api/chat', {
         method: 'POST',
@@ -41,14 +46,16 @@ function sendMessage() {
     })
     .then(data => {
         const botMessageElement = document.createElement('div');
-        botMessageElement.textContent = `${data.response}`;
+        // botMessageElement.textContent = `${data.response}`;
+        const botMessageHtml = md.render(data.response);
+        botMessageElement.innerHTML = botMessageHtml;
         botMessageElement.style.color = "white";
         botMessageElement.style.height = '100%';
         botMessageElement.style.paddingLeft = "10px";
         botMessageElement.style.borderBottom = "1px solid grey";
         botMessageElement.style.marginTop = "10px";
         botMessageElement.style.textAlign = 'left';
-
+        Prism.highlightAll();
         // if (data.response === "I don't know the answer. Please teach me.") {
         //     // teachBot(userInput);
         // }
@@ -97,47 +104,47 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-async function checkstatus() {
-    try {
-        let response = await fetch('http://127.0.0.1:5000/api/botstat', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ message: "hello" })
-        });
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        let data = await response.json();
-        return data.message;
-    } catch (error) {
-        console.error('Error:', error);
-        return null;
-    }
-}
+// async function checkstatus() {
+//     try {
+//         let response = await fetch('http://127.0.0.1:5000/api/botstat', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({ message: "hello" })
+//         });
+//         if (!response.ok) {
+//             throw new Error('Network response was not ok');
+//         }
+//         let data = await response.json();
+//         return data.message;
+//     } catch (error) {
+//         console.error('Error:', error);
+//         return null;
+//     }
+// }
 
-// Function to animate and check the bot status
-async function animate() {
-    let statsbar = document.getElementsByClassName('status-bar')[0];
-    let stats = await checkstatus();
-    if (!stats) {
-        statsbar.textContent = "Offline";
-        statsbar.style.display = 'flex';
-        statsbar.style.backgroundColor = 'red';
-        document.getElementById('user-input').style.display = 'none';
-    } else {
-        statsbar.textContent = "Online";
-        statsbar.style.display = 'flex';
-        statsbar.style.backgroundColor = 'green';
-        document.getElementById('user-input').style.display = 'flex';
-    }
-
-    window.requestAnimationFrame(animate);
-}
+// // Function to animate and check the bot status
+// async function animate() {
+//     let statsbar = document.getElementsByClassName('status-bar')[0];
+//     let stats = await checkstatus();
+//     if (!stats) {
+//         statsbar.textContent = "Offline";
+//         statsbar.style.display = 'flex';
+//         statsbar.style.backgroundColor = 'red';
+//         document.getElementById('user-input').style.display = 'none';
+//     } else {
+//         statsbar.textContent = "Online";
+//         statsbar.style.display = 'flex';
+//         statsbar.style.backgroundColor = 'green';
+//         document.getElementById('user-input').style.display = 'flex';
+//     }
+    
+//     window.requestAnimationFrame(animate);
+// }
 
 // Call checkstatus once to ensure it's working
-checkstatus();
+// checkstatus();
 
-// Use requestAnimationFrame to repeatedly check the bot status
-animate();
+// // Use requestAnimationFrame to repeatedly check the bot status
+// animate();
